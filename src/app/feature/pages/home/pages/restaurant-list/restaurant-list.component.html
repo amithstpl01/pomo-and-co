@@ -1,0 +1,34 @@
+<div class="page">
+	<div class="page__inner">
+		<!-- Category -->
+		<section class="category" *ngIf="categories?.length">
+			<h2 class="page__title">Category</h2>
+			<div class="category__list p-d-flex">
+				<div class="category__list-item" *ngFor="let category of categories">
+					<app-restaurant-category
+						[image]="category?.image"
+						[name]="category?.name"
+					></app-restaurant-category>
+				</div>
+			</div>
+		</section>
+
+		<!-- Restaurants -->
+		<section class="restaurants" *ngIf="restaurants?.length">
+			<h2 class="page__title">Restaurants</h2>
+			<div class="restaurants__list p-d-flex p-flex-wrap p-jc-between">
+				<div
+					class="restaurants__list-item"
+					*ngFor="let restaurant of restaurants"
+				>
+					<app-restaurant-card
+						[image]="restaurant?.restaurantImage"
+						[name]="restaurant?.restaurantName"
+						[isOpen]="restaurant?.isOpen"
+						[description]="restaurant?.restaurantDescription"
+					></app-restaurant-card>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>

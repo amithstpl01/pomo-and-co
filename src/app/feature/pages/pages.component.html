@@ -1,0 +1,164 @@
+<div class="wrapper">
+	<div class="p-d-flex main-container">
+		<!-- Left Sidabar Content -->
+		<div
+			class="main-container__left"
+			[ngClass]="{ 'main-container__left--expand': isMenuOpen }"
+		>
+			<!-- <button
+				appSvg
+				name="angle-left"
+				(click)="isMenuOpen = !isMenuOpen"
+				class="menu-toggle"
+			></button> -->
+
+			<div class="sidebar p-d-flex p-jc-between p-flex-column">
+				<!-- Sidebar Header -->
+				<div class="sidebar__header">
+					<div class="sidebar__logo">
+						<img
+							class="p-d-block"
+							src="assets/images/logo.svg"
+							alt="pomo-&-co"
+							width="150"
+							height="32"
+						/>
+					</div>
+				</div>
+
+				<!-- Sidebar Body -->
+				<div class="sidebar__body p-d-flex p-flex-column">
+					<!-- Skeleton Loader Menu -->
+					<!-- <nav class="sidebar__menu menu">
+					<a
+						class="p-d-flex p-ai-center menu__item menu__item--placeholder"
+						*ngFor="let menu of fakeMenusItems"
+					>
+						<span class="p-d-flex p-ai-center p-jc-center menu__item-icon"
+							><p-skeleton></p-skeleton
+						></span>
+						<p-skeleton></p-skeleton>
+					</a>
+				</nav> -->
+
+					<!-- Menu -->
+					<nav class="sidebar__menu menu">
+						<ng-container *ngFor="let menu of menus">
+							<a
+								class="p-d-flex p-ai-center menu__item"
+								(click)="isMenuOpen = false"
+								[routerLink]="[menu.path]"
+								[ngClass]="{
+									'menu__item--highlight':
+										menu.path && router.url.includes(menu.path)
+								}"
+								[class.menu__item--deactivate]="menu.path === ''"
+							>
+								<!-- 'menu__item--highlight': router.url.includes(menu.path) -->
+								<span
+									class="p-d-flex p-ai-center p-jc-center menu__item-icon"
+									appSvg
+									iconGroup="sidebar-icons"
+									[name]="menu.icon.name"
+									style="
+									--icon-width: {{ menu.icon.width }};
+									--icon-height: {{ menu.icon.height }}
+								"
+								></span>
+								{{ menu.title }}
+								<app-badge
+									*ngIf="menu.title === 'Notification'"
+									[count]="2"
+									color="primary"
+									class="menu__item-badge p-ml-auto"
+								></app-badge>
+							</a>
+						</ng-container>
+					</nav>
+
+					<!-- Order Cards -->
+					<div class="order-cards p-mt-auto">
+						<div class="order-cards__list">
+							<app-order-card
+								[closable]="true"
+								[icon]="'clock'"
+								[title]="'Your Order is now Ready'"
+								[text]="'Splint Doumo'"
+								[orderId]="'#ED564F'"
+								[buttonLabel]="'Details'"
+							></app-order-card>
+						</div>
+					</div>
+				</div>
+
+				<!-- Sidebar Footer -->
+				<div class="sidebar__footer">
+					<!-- User Info Content -->
+					<div class="user-info">
+						<div class="user-info__content p-d-flex p-ai-center p-jc-between">
+							<div class="user-info__content-left">
+								<h5>Mark Clarke</h5>
+								<p>markclarke@gmail.com</p>
+							</div>
+							<button class="user-info__content-right p-ml-auto">
+								<span appSvg name="up-down"></span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Right Main Content -->
+		<div
+			class="p-d-flex p-jc-between p-flex-column main-container__right main-content"
+		>
+			<!-- Desktop & Table header  -->
+			<header class="main-content__header header">
+				<div class="header__left">
+					<nav class="p-d-flex p-ai-center header-nav">
+						<app-button class="header-nav__item header-nav__item--primary"
+							><span
+								appSvg
+								name="angle-left"
+								style="--icon-width: 16px; --icon-height: 16px"
+							></span>
+						</app-button>
+					</nav>
+				</div>
+				<div class="header__right p-ml-auto">
+					<div class="header-search">
+						<input
+							class="header-search__input"
+							type="text"
+							placeholder="Search for Restaurants  (Press Enter to search)"
+						/>
+					</div>
+					<nav class="p-d-flex p-ai-center header-nav">
+						<app-button class="header-nav__item header-nav__item--primary"
+							><span
+								appSvg
+								name="filter"
+								style="--icon-width: 20px; --icon-height: 20px"
+							></span>
+						</app-button>
+						<app-button
+							class="header-nav__item header-nav__item--secondary"
+							color="secondary"
+							><span
+								appSvg
+								name="cart"
+								style="--icon-width: 20px; --icon-height: 20px"
+							></span>
+						</app-button>
+					</nav>
+				</div>
+			</header>
+
+			<!-- Body -->
+			<main class="main-content__body">
+				<router-outlet></router-outlet>
+			</main>
+		</div>
+	</div>
+</div>

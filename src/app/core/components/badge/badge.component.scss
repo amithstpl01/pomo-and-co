@@ -1,0 +1,16 @@
+.badge {
+	padding: 4px 8px;
+	font-weight: bold;
+	font-size: 12px;
+	line-height: 16px;
+	color: var(--color, var(--white-color));
+	border-radius: 50%;
+	background: var(--background);
+
+	$colors: 'primary', 'secondary', 'green', 'red';
+	@for $i from 1 through length($colors) {
+		&--#{nth($colors, $i)} {
+			--background: var(#{--}#{nth($colors, $i)}-color);
+		}
+	}
+}

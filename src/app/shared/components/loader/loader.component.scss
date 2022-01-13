@@ -1,0 +1,21 @@
+.cst-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  // background-color: rgba(0,0,0,.12);
+  background-color: var(--white);
+
+  &__loader {
+    --size: 3em;
+    width: var(--size);
+    height: var(--size);
+    border-color: var(--primary-color);
+    border-right-color: transparent;
+  }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Pomo & co</title>
+		<base href="/" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/png" href="./assets/favicon.ico" />
+		<!-- <link rel="apple-touch-icon" href="./assets/icons/icon-192x192.png" /> -->
+
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+			rel="stylesheet"
+		/>
+
+		<meta name="theme-color" content="#503E9D" />
+
+		<style>
+			.full-screen-loader {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background: rgba(255, 255, 255, 1);
+				position: fixed;
+				z-index: 99999;
+				height: 100%;
+				width: 100%;
+			}
+			.full-screen-loader::after {
+				content: '';
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translateX(-50%) translateY(-50%) scale(0.85);
+				width: 200px;
+				height: 200px;
+				display: block;
+				margin: auto;
+				background: #fff;
+				border-radius: 12px;
+				background-image: url('../assets/images/loader.gif');
+			}
+		</style>
+	</head>
+	<body>
+		<app-root>
+			<div class="full-screen-loader"></div>
+		</app-root>
+	</body>
+</html>

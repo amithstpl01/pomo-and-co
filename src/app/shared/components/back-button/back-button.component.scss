@@ -1,0 +1,38 @@
+.back-btn {
+  $this: &;
+
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 600;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  padding: 5px 10px;
+  transition: all 0.2s ease-in;
+  color: var(--primary-color);
+  white-space: nowrap;
+
+  &__icon {
+    --icon-width: 5px;
+    --icon-height: 8px;
+    --arrow-color: var(--primary-color);
+    margin-right: 4px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  &__text {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &:hover {
+    color: var(--primary-color-dark);
+
+    #{$this}__icon {
+      --arrow-color: var(--primary-color-dark);
+    }
+  }
+  &:focus {
+    outline: none;
+  }
+}

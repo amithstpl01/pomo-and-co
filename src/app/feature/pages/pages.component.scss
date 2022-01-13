@@ -1,0 +1,226 @@
+.wrapper {
+	height: 100%;
+}
+
+.main-container {
+	// height: 100vh;
+	height: 100%;
+
+	--sidebar-width: 304px;
+
+	&__left {
+		width: 100%;
+		max-width: var(--sidebar-width);
+		flex-shrink: 0;
+		background: var(--white-color);
+		position: relative;
+	}
+	&__right {
+		width: 100%;
+		// height: 100%;
+		overflow-x: hidden;
+		position: relative;
+	}
+}
+
+.sidebar {
+	height: 100%;
+	border-radius: 0 24px 24px 0;
+	background: var(--gray-color-light);
+
+	&__header,
+	&__footer {
+		flex-shrink: 0;
+	}
+	&__body {
+		flex-grow: 1;
+		height: 100%;
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+	// &__footer {}
+
+	&__logo {
+		flex-shrink: 0;
+		padding: 32px;
+	}
+	&__menu {
+		padding: 16px;
+		// height: 100%;
+		// overflow-x: hidden;
+		// overflow-y: auto;
+	}
+}
+
+// .menu-toggle {
+// 	display: none;
+// }
+
+.menu {
+	$this: &;
+	&__item {
+		border-radius: 12px;
+		color: var(--text-color);
+		padding: 16px;
+		text-decoration: none;
+		transition: all 0.2s ease-in;
+		position: relative;
+
+		--icon-color: var(--gray-color);
+
+		&:hover {
+			&:not(#{$this}__item--highlight) {
+				background: rgba(var(--gray-color-dark-rgb), 0.35);
+			}
+		}
+
+		&--highlight {
+			background: var(--primary-color);
+			color: var(--white-color);
+			font-weight: 600;
+
+			--icon-color: var(--white-color);
+		}
+
+		&--deactivate {
+			pointer-events: none;
+		}
+	}
+	&__item-icon {
+		width: 24px;
+		height: 24px;
+		margin-right: 24px;
+	}
+
+	&__item-badge {
+		::ng-deep {
+			span {
+				min-width: 24px;
+				min-height: 24px;
+				text-align: center;
+				padding: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+	}
+}
+
+.order-cards {
+	&__list {
+		padding: 16px 32px;
+	}
+}
+
+.user-info {
+	padding: 32px 22px 32px 32px;
+	&__content {
+	}
+	&__content-left {
+		padding: 3px 0;
+		h5 {
+			margin: 0 0 2px;
+			line-height: 24px;
+			color: var(--text-color-dark);
+		}
+		p {
+			margin: 0;
+			font-size: 11px;
+			line-height: 16px;
+		}
+	}
+	&__content-right {
+		--icon-width: 24px;
+		--icon-height: var(--icon-width);
+		--icon-color: var(--black-color);
+
+		flex-shrink: 0;
+		border: 0;
+		background: none;
+	}
+}
+
+.main-content {
+	--inner-px: 32px;
+	&__header {
+		display: flex;
+		align-items: center;
+		flex-shrink: 0;
+		width: 100%;
+		text-align: center;
+		padding: 32px var(--inner-px);
+	}
+
+	&__body {
+		width: 100%;
+		height: 100%;
+		padding: 15px var(--inner-px);
+		// overflow: hidden;
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+}
+
+.header {
+	&__left,
+	&__right {
+		display: flex;
+		align-items: center;
+	}
+}
+.header-search {
+	margin-right: 16px;
+	min-width: 385px;
+	width: 100%;
+
+	&__input {
+		width: 100%;
+		font-weight: normal;
+		font-size: 14px;
+		line-height: 24px;
+		background: var(--gray-color-light)
+			url('data:image/svg+xml;utf-8,<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.8571 7.42857C14.8571 3.32588 11.5313 0 7.42857 0C3.32588 0 0 3.32588 0 7.42857C0 11.5313 3.32588 14.8571 7.42857 14.8571C9.26857 14.8571 10.96 14.1829 12.2629 13.0743L12.5714 13.3829V14.2857L18.2857 20L20 18.2857L14.2857 12.5714H13.3829L13.0743 12.2629C14.1829 10.96 14.8571 9.26857 14.8571 7.42857ZM2.28571 7.42857C2.28571 4.57143 4.57143 2.28571 7.42857 2.28571C10.2857 2.28571 12.5714 4.57143 12.5714 7.42857C12.5714 10.2857 10.2857 12.5714 7.42857 12.5714C4.57143 12.5714 2.28571 10.2857 2.28571 7.42857Z" fill="black"/></svg>')
+			no-repeat;
+		padding: 12px 12px 12px 48px;
+		border-radius: 10px;
+		border: 0;
+		background-size: 20px 20px;
+		background-position: 16px center;
+		color: var(--text-color-dark);
+
+		&::placeholder {
+			color: var(--text-color);
+		}
+	}
+}
+
+.header-nav {
+	$this: &;
+	&__item {
+		--size: 48px;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		&:not(:last-child) {
+			margin-right: 16px;
+		}
+
+		::ng-deep {
+			button {
+				width: var(--size);
+				height: var(--size);
+				padding: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+	}
+}

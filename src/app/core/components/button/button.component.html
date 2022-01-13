@@ -1,0 +1,16 @@
+<!-- <span class="btn-wrapper"> -->
+<button
+	class="btn {{ color ? 'btn--' + color : 'btn--primary' }} {{
+		fill ? 'btn-' + fill + ' ' + 'btn-' + fill + '--' + color : ''
+	}} {{ classes }}"
+	[type]="type"
+	[disabled]="disabled"
+	[ngClass]="{ 'is-loading': loading }"
+	[class.btn--full-width]="expand === 'block'"
+>
+	<!-- [ngClass]="color ? 'btn--' + color : 'btn--primary'"
+	[ngClass]="fill ? 'btn-' + fill + ' ' + 'btn-' + fill + '--' + color : ''" -->
+	<ng-content *ngIf="!loading"></ng-content>
+	<span *ngIf="loading" class="loader"></span>
+</button>
+<!-- </span> -->

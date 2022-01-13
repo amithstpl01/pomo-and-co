@@ -1,0 +1,16 @@
+<div class="restaurant-card">
+	<div class="restaurant-card__img">
+		<img [src]="image" [alt]="name" width="336" height="176" />
+	</div>
+	<div class="restaurant-card__content">
+		<div class="p-d-flex">
+			<h4 class="restaurant-card__title">{{ name }}</h4>
+			<span
+				class="restaurant-card__label p-ml-auto"
+				[ngClass]="isOpen ? 'is-open' : 'is-closed'"
+				>{{ isOpen ? 'Open Now' : 'Closed' }}</span
+			>
+		</div>
+		<p class="restaurant-card__description">{{ description }}</p>
+	</div>
+</div>

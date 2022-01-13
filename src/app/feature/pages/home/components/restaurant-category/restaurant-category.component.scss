@@ -1,0 +1,23 @@
+.category {
+	&__img {
+		--sz: 44px;
+		--img-sz: 30px;
+		width: var(--sz);
+		height: var(--sz);
+		border-radius: var(--img-bdr-rds, 12px);
+		background: var(--img-background, var(--gray-color-light));
+
+		img {
+			width: var(--img-sz);
+			height: var(--img-sz);
+			object-fit: contain;
+			display: block;
+			margin: auto;
+		}
+	}
+	&__name {
+		padding: 0 15px;
+		color: var(--text-color-dark);
+		margin: 0;
+	}
+}

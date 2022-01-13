@@ -1,0 +1,22 @@
+<div class="order-card">
+	<button
+		class="order-card__close p-d-flex p-ai-center p-jc-center"
+		*ngIf="closable"
+	>
+		<span appSvg name="close"></span>
+	</button>
+	<span
+		class="order-card__icon p-d-flex p-ai-center p-jc-center"
+		appSvg
+		[name]="icon"
+	></span>
+	<div class="order-card__text-content">
+		<h5 class="order-card__title">{{ title }}</h5>
+		<p class="order-card__text">{{ text }}</p>
+		<p class="order-card__text">Order Id: {{ orderId }}</p>
+	</div>
+	<app-button class="order-card__cta p-d-flex p-flex-column" color="primary"
+		>{{ buttonLabel }}
+		<span class="icon-arror-right" appSvg name="arrow-right"></span
+	></app-button>
+</div>

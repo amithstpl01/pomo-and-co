@@ -1,0 +1,219 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+	// Fonts
+	--primary-font: 'Open Sans', sans-serif;
+
+	// Colors
+	--primary-color: #503e9d;
+	--primary-color-rgb: 80, 62, 157;
+	--primary-color-dark: #433485;
+	--primary-color-dark-rgb: 67, 52, 133;
+
+	--secondary-color: #fb6d3a;
+	--secondary-color-rgb: 251, 109, 58;
+	--secondary-color-dark: #fa4b0c;
+	--secondary-color-dark-rgb: 250, 75, 12;
+
+	--text-color: #626264;
+	--text-color-rgb: 98, 98, 100;
+	--text-color-dark: #182135;
+	--text-color-dark-rgb: 24, 33, 53;
+
+	--green-color: #41dc6c;
+	--green-color-rgb: 65, 220, 108;
+	--green-color-dark: #23c04f;
+	--green-color-dark-rgb: 35, 192, 79;
+
+	--red-color: #e15b71;
+	--red-color-rgb: 225, 91, 113;
+	--red-color-dark: #d52743;
+	--red-color-dark-rgb: 213, 39, 67;
+
+	--gray-color-light: #f7f7f7;
+	--gray-color-light-rgb: 247, 247, 247;
+	--gray-color: #a3a3a4;
+	--gray-color-rgb: 163, 163, 164;
+
+	--black-color: #000;
+	--black-color-rgb: 0, 0, 0;
+
+	--white-color: #fff;
+	--white-color-rgb: 255, 255, 255;
+
+	--scroll-bar-width: 5px;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+html,
+body {
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: var(--primary-font);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-display: swap;
+	font-size: 16px;
+	font-weight: 400;
+	font-style: normal;
+	background: var(--white-color);
+	color: var(--text-color);
+	line-height: 1.25;
+	overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
+}
+
+h1 {
+	font-size: 32px;
+}
+h2 {
+	font-size: 24px;
+}
+h3 {
+	font-size: 18px;
+}
+h4 {
+	font-size: 16px;
+}
+h5 {
+	font-size: 14px;
+}
+
+input {
+	// &[type=text],
+	// &[type=number] {}
+	color: var(--secondary-color);
+	font-size: 14px;
+	line-height: 16px;
+
+	&[type='number'] {
+		-moz-appearance: textfield;
+
+		&::-webkit-inner-spin-button,
+		&::-webkit-outer-spin-button {
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			margin: 0;
+		}
+	}
+}
+// Reset
+*,
+*::after,
+*::before {
+	&:focus {
+		outline: none !important;
+	}
+}
+*:focus {
+	outline: none !important;
+}
+*:focus-visible {
+	outline: 0 !important;
+}
+
+// <!-- Scrollbar CSS
+::-webkit-scrollbar {
+	width: var(--scroll-bar-width);
+	height: var(--scroll-bar-width);
+}
+::-webkit-scrollbar-track {
+	// background: var(--white-color);
+	background: transparent;
+}
+::-webkit-scrollbar-thumb {
+	background: rgba(var(--primary-color-rgb), 1);
+	border-radius: var(--scroll-bar-width);
+}
+::-webkit-scrollbar-thumb:hover {
+	background: rgba(var(--primary-color-dark-rgb), 1);
+}
+// Scrollbar CSS -->
+
+// Utility Classes
+.cursor-pointer {
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.divider {
+	&--v {
+		width: 1px;
+		margin: 0 6px;
+		background: transparent;
+		border-left: 1px solid var(--divider-color);
+	}
+}
+
+.text-truncate {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.required {
+	&::after {
+		content: '*';
+		color: var(--red-color);
+		font-size: inherit;
+	}
+}
+
+.w-100 {
+	width: 100% !important;
+}
+.h-100 {
+	height: 100% !important;
+}
+
+.fw-400 {
+	font-weight: 400;
+}
+.fw-500 {
+	font-weight: 500;
+}
+.fw-600 {
+	font-weight: 600;
+}
+
+// Error
+.error {
+	color: var(--red-color);
+	font-size: 12px;
+	line-height: 14px;
+	font-weight: normal;
+	text-align: left;
+
+	&__msg,
+	p {
+		margin: 5px 0 0;
+	}
+}
+
+.p-component {
+	font-family: var(--primary-font);
+}
+
+// Media Queries
+@media (max-width: 1365px) {
+	:root {
+		--scroll-bar-width: 3px;
+	}
+}
